@@ -1,4 +1,5 @@
-# Template for Isaac Lab Projects
+(Capture1.png)
+# Unitree A1's Simulation to Real using Isaac Lab 
 
 [![IsaacSim](https://img.shields.io/badge/IsaacSim-4.2.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
 [![Isaac Lab](https://img.shields.io/badge/IsaacLab-1.2.0-silver)](https://isaac-sim.github.io/IsaacLab)
