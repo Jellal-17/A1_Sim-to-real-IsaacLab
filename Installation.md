@@ -2,6 +2,7 @@
 Unitree A1's RL in IsaacLab
 
 Below is something I followed to Install Isaaclab 1.1 with IsaacSim 4.1. in Ubuntu 22.04. Make sure to follow this step by step. 
+(This might be used for the installation of further versions, will update if there is any change)
 
 Sourced the following instructions from - https://github.com/housework-robot/main/blob/main/S04_RL_for_unitree/S04E01_Isaac_sim_lab_installation.md
 
@@ -62,15 +63,12 @@ After filling the user registration information and submitting it, you can downl
 
 Be prepared that downloading Isaac Sim will take a long time, and if the network is unstable, you may need to download it repeatedly.
 
-![The official website of Nvidia Isaac Sim](S04E01_asset/2_1_isaac_lab_instruction.png "The official website of Nvidia Isaac Sim")
-
 ## 2.2 Install Cache and Nucleus 
 
 Follow the instructions on [the Isaac Sim official website](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html#workstation-setup) to install [Cache](https://docs.omniverse.nvidia.com/utilities/latest/cache/installation/workstation.html) and [Nucleus](https://docs.omniverse.nvidia.com/nucleus/latest/workstation/installation.html). 
 
 The download procedure is quite lengthy, but overall it goes relatively smoothly.
 
-![The screenshot of Omniverse launcher](S04E01_asset/2_2_omniverse_launcher.PNG "The screenshot of Omniverse launcher")
 
 ## 2.3 Install Isaac Sim
 
@@ -82,7 +80,6 @@ After the installation, Isaac Sim itself worked properly, but I encountered many
 
 After several trials and errors, I found in the installation guide on [the official Isaac Lab website](https://isaac-sim.github.io/IsaacLab/source/setup/installation/binaries_installation.html) that version 4.1 of Isaac Sim can guarantee that Isaac Lab will work properly.
 
-![The official Isaac Lab website](S04E01_asset/2_3_1_isaac_lab_binary.png "The official Isaac Lab website")
 
 However, the 4.1.0 version of Isaac Sim is hidden in a corner of the Omniverse Launcher, easy to be ignored. 
 
@@ -99,15 +96,9 @@ I installed version 4.1.0. After the installation is complete, running Checker w
 
 1. In the Launcher, click to select `Isaac Sim Compatibility Checker`,
 
-![Click to select 'Isaac Sim Compatibility Checker'](S04E01_asset/2_4_1_isaac_checker_install_1.PNG "Click to select 'Isaac Sim Compatibility Checker'") 
-
 2. Click to select `Release 4.1.0`,
 
-![Click to select 'Release 4.1.0'](S04E01_asset/2_4_1_isaac_checker_install_2.PNG "Click to select 'Release 4.1.0'") 
-
 3. The execution result is a pop-up window containing system information.
-
-![The execution result of the Checker](S04E01_asset/2_4_1_isaac_checker_install_3.PNG "The execution result of the Checker") 
 
 
 # 3. Install Isaac Lab
@@ -209,8 +200,6 @@ ${ISAACSIM_PATH}/isaac-sim.sh
 
 When executing `isaac-sim.sh` script, it will pop up a window as following, 
 
-![The execution result of isaac-sim.sh without parameters](S04E01_asset/4_1_empty_isaac_sim.PNG "The execution result of isaac-sim.sh without parameters") 
-
 ## 4.3 Run Isaac Sim's python program
 
 When running `Isaac Sim`'s python programs, you must use `Isaac Sim`'s `python.sh` script, instead of using `python` directly. 
@@ -220,8 +209,6 @@ ${ISAACSIM_PYTHON_EXE} ${ISAACSIM_PATH}/standalone_examples/api/omni.isaac.core/
 ~~~
 
 The execution result is a pop-up window, with red and white blocks jumping up and down. 
-
-![The execution result of isaac-sim python program](S04E01_asset/4_2_cube_isaac_sim.PNG "The execution result of isaac-sim python program") 
 
 ## 4.4 Run Isaac Lab's python program
 
