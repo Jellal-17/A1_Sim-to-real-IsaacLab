@@ -80,5 +80,5 @@
     },
     // Python extra paths
     // Note: this is will be auto-filled
-    "python.analysis.extraPaths": []
+    "python.analysis.extraPaths": ["C:/Users/sathv/Documents/A1_Sim-to-real/exts/omni.isaac.a1_tasks"]
 }

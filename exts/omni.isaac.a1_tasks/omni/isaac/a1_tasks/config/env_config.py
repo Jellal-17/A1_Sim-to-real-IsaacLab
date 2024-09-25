@@ -22,8 +22,9 @@ from omni.isaac.lab.utils import configclass
 from omni.isaac.lab.utils.noise import AdditiveUniformNoiseCfg as Unoise
 
 
-
 """Scene settings"""
+
+
 @configclass
 class A1SceneCfg(InteractiveSceneCfg):
 
@@ -66,17 +67,16 @@ class A1SceneCfg(InteractiveSceneCfg):
     contact_forces = ContactSensorCfg(
         prim_path="{ENV_REGEX_NS}/Robot/.*", history_length=4, track_air_time=True, update_period=0.0
     )
-    
 
 
 """ MDP settings"""
+
+
 @configclass
 class A1ActionsCfg:
     """Action specifications for the MDP."""
 
     joint_pos = mdp.JointPositionActionCfg(asset_name="robot", joint_names=[".*"], scale=0.5, use_default_offset=True)
-
-
 
 
 @configclass
@@ -94,8 +94,6 @@ class A1CommandsCfg:
     #         lin_vel_x=(-1.0, 1.0), lin_vel_y=(-1.0, 1.0), ang_vel_z=(-1.0, 1.0),
     #     ),
     # )
-
-
     """for the "pos_z range", refer to the terrain noise range, which generally represents the min and max height of the terrain""" 
     pose_command = mdp.UniformPose2dCommandCfg(
         asset_name="robot",
@@ -106,7 +104,6 @@ class A1CommandsCfg:
             pos_x=(-4.0, 4.0), pos_y=(-4.0, 4.0)
         )
     )
-
 
 
 @configclass
@@ -141,6 +138,7 @@ class A1ObservationsCfg:
 
     # observation groups
     policy: PolicyCfg = PolicyCfg()
+
 
 @configclass
 class A1EventCfg:
@@ -218,34 +216,35 @@ class A1EventCfg:
         },
     )
 
+
 @configclass
 class A1RewardsCfg:
     # -- task
-    # air_time = RewardTermCfg(
+    # air_time = RewTerm(
     #     func=a1_mdp.feet_air_time,
     #     weight=0.1,
     #     params={"sensor_cfg": SceneEntityCfg("contact_forces", body_names=".*_foot"),
     #             "command_name": "position_command",
     #             "threshold": 0.5,},
     # )
-    termination_penalty = RewardTermCfg(func=mdp.is_terminated, weight=-400.0)
+    termination_penalty = RewTerm(func=mdp.is_terminated, weight=-400.0)
 
-    position_tracking = RewardTermCfg(
+    position_tracking = RewTerm(
         func=mdp.position_command_error_tanh,
         weight=5.0,
         params={"std": 2.0, "command_name": "pose_command"},
     )
-    position_tracking_fine_grained = RewardTermCfg(
+    position_tracking_fine_grained = RewTerm(
         func=mdp.position_command_error_tanh,
         weight=5.0,
         params={"std": 0.2, "command_name": "pose_command"},
     )
-    orientation_tracking = RewardTermCfg(
+    orientation_tracking = RewTerm(
         func=mdp.heading_command_error_abs,
         weight=-0.3,
         params={"command_name": "pose_command"},
     )
-    # foot_clearance = RewardTermCfg(
+    # foot_clearance = RewTerm(
     #     func=mdp.foot_clearance_reward,
     #     weight=0.05,
     #     params={
@@ -256,28 +255,28 @@ class A1RewardsCfg:
     #     },
     # )
 
-    # goal_achievement = RewardTermCfg(
+    # goal_achievement = RewTerm(
     #     func=mdp.goal_achievement_reward,
     #     params={"goals": goals, "current_goal_index": 0, "asset_cfg": SceneEntityCfg("robot")},
 # )
 
     # -- penalties
 
-    base_motion = RewardTermCfg(
+    base_motion = RewTerm(
         func=mdp.base_motion_penalty, weight=-0.5, params={"asset_cfg": SceneEntityCfg("robot")}
     )
 
-    base_angular_motion = RewardTermCfg(
+    base_angular_motion = RewTerm(
         func=mdp.base_angular_motion_penalty, weight=-0.1, params={"asset_cfg": SceneEntityCfg("robot")}
     )
 
-    base_orientation = RewardTermCfg(
+    base_orientation = RewTerm(
         func=mdp.base_orientation_penalty, weight=-1.0, params={"asset_cfg": SceneEntityCfg("robot")}
     )
 
-    action_smoothness = RewardTermCfg(func=mdp.action_smoothness_penalty, weight=-0.01)
+    action_smoothness = RewTerm(func=mdp.action_smoothness_penalty, weight=-0.01)
 
-    foot_slip = RewardTermCfg(
+    foot_slip = RewTerm(
         func=mdp.foot_slip_penalty,
         weight=-0.5,
         params={
@@ -287,7 +286,7 @@ class A1RewardsCfg:
         },
     )
 
-    collision = RewardTermCfg(
+    collision = RewTerm(
         func=mdp.collision,
         weight=-5.0,
         params={
@@ -297,7 +296,7 @@ class A1RewardsCfg:
         }
     )
 
-    feet_stumble = RewardTermCfg(
+    feet_stumble = RewTerm(
         func=mdp.contact_penality,
         weight=-1.0,
         params={
@@ -306,30 +305,31 @@ class A1RewardsCfg:
         }
     )
 
-    # joint_acc = RewardTermCfg(
+    # joint_acc = RewTerm(
     #     func=mdp.joint_acceleration_penalty,
     #     weight=-2.5e-7,
     #     params={"asset_cfg": SceneEntityCfg("robot", joint_names=".*")},
     # )
-    # joint_torques = RewardTermCfg(
+    # joint_torques = RewTerm(
     #     func=mdp.joint_torques_penalty,
     #     weight=-1.0e-7,
     #     params={"asset_cfg": SceneEntityCfg("robot", joint_names=".*")},
     # )
-    # joint_vel = RewardTermCfg(
+    # joint_vel = RewTerm(
     #     func=mdp.joint_velocity_penalty,
     #     weight=-1.0e-2,
     #     params={"asset_cfg": SceneEntityCfg("robot", joint_names=".*")},
     # )
-    joint_pos_limits = RewardTermCfg(
+    joint_pos_limits = RewTerm(
         func=mdp.joint_pos_limits,
         weight=-0.004,
     )
-    hip_limit = RewardTermCfg(
+    hip_limit = RewTerm(
         func=mdp.hip_pos_error,
         weight=-0.5,
         params={"asset_cfg": SceneEntityCfg("robot", body_names=".*_hip"),}
     )
+
 
 @configclass
 class A1TerminationsCfg:
@@ -348,8 +348,9 @@ class A1CurriculumCfg:
     terrain_levels = CurrTerm(func=mdp.terrain_levels_vel)
 
 
-
 """ Environment basic generation"""
+
+
 @configclass
 class A1EnvCfg(ManagerBasedRLEnvCfg):
 
@@ -368,7 +369,6 @@ class A1EnvCfg(ManagerBasedRLEnvCfg):
     curriculum: A1CurriculumCfg = A1CurriculumCfg()
 
     def __post_init__(self):
-
 
         # general settings
         self.decimation = 10  # 50 Hz
