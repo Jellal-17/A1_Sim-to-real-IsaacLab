@@ -10,12 +10,12 @@
 
 ## Overview
 
-This repository serves as a template for building projects or extensions based on Isaac Lab. It allows you to develop in an isolated environment, outside of the core Isaac Lab repository.
+This repository is based on a template for building a quadruped robot Unitree A1 based on Isaac Lab. It allowed me to develop in an isolated environment, outside of the core Isaac Lab repository.
 
 **Key Features:**
 
-- `Isolation` Work outside the core Isaac Lab repository, ensuring that your development efforts remain self-contained.
-- `Flexibility` This template is set up to allow your code to be run as an extension in Omniverse.
+- `Isolation` Work outside the core Isaac Lab repository, ensuring that my development efforts remain self-contained.
+- `Flexibility` This template allowed my code to be run as an extension in Omniverse.
 
 **Keywords:** extension, template, isaaclab
 
@@ -36,7 +36,7 @@ If everything executes correctly, it should create a file .python.env in the .vs
 
 ## Code formatting
 
-We have a pre-commit template to automatically format your code.
+There is a pre-commit template to automatically format the code.
 To install pre-commit:
 
 ```bash
