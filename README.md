@@ -52,19 +52,6 @@ pre-commit run --all-files
 
 
 ## Troubleshooting
-
-### Pylance Missing Indexing of Extensions
-
-IN some VsCode versions, the indexing of part of the extensions is missing. In this case, add the path to your extension in `.vscode/settings.json` under the key `"python.analysis.extraPaths"`.
-
-```json
-{
-    "python.analysis.extraPaths": [
-        "<path-to-ext-repo>/exts/omni.isaac.a1_tasks"
-    ]
-}
-```
-
 ### Pylance Crash
 
 If you encounter a crash in `pylance`, it is probable that too many files are indexed and you run out of memory.
