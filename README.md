@@ -1,4 +1,4 @@
-(/Capture1.png)
+![A1](/Capture1.png)
 # Unitree A1's Simulation to Real using Isaac Lab 
 
 [![IsaacSim](https://img.shields.io/badge/IsaacSim-4.2.0-silver.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
