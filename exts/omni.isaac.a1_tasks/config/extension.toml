@@ -7,12 +7,12 @@ version = "0.1.0"
 category = "isaaclab"
 readme  = "README.md"
 
-title = "Extension Template"
-author = "Isaac Lab Project Developers"
-maintainer = "Isaac Lab Project Developers"
-description="Extension Template for Isaac Lab"
-repository = "https://github.com/isaac-sim/IsaacLabExtensionTemplate.git"
-keywords = ["extension", "template", "isaaclab"]
+title = "A1 Sim to real Extension"
+author = "Sathvik Kadimisetty"
+maintainer = "Sathvik Kadimisetty"
+description="Extension containing A1's code for robot learning."
+repository = "https://github.com/Jellal-17/A1_Sim-to-real-IsaacLab.git"
+keywords = ["navigation", "extension", "isaaclab"]
 
 [dependencies]
 "omni.isaac.lab" = {}

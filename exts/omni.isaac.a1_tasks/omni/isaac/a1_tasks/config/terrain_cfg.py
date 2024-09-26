@@ -18,7 +18,6 @@ TERRAIN1_CFG = terrain.TerrainGeneratorCfg(
         "slope": terrain.HfPyramidSlopedTerrainCfg(proportion=0.33, slope_range=(0.1, 0.3), platform_width=0.4),
     },
     curriculum=True,
-    difficulty_range=(0.0, 1.0),
 )
 
 TERRAIN1_PLAY_CFG = terrain.TerrainGeneratorCfg(
@@ -39,5 +38,4 @@ TERRAIN1_PLAY_CFG = terrain.TerrainGeneratorCfg(
         "slope": terrain.HfPyramidSlopedTerrainCfg(proportion=0.33, slope_range=(0.1, 0.3), platform_width=0.4),
     },
     curriculum=False,
-    difficulty_range=(1.0, 1.0),
 )

@@ -16,15 +16,16 @@ INSTALL_REQUIRES = [
     # generic 
     "psutil",
     "numpy",
-    "torch=2.2.2",
-    "torchvision>=0.14.1"
-    "protobuf>3.20.2, <5.0.0",
+    "torch==2.2.2",
+    "torchvision>=0.14.1",
+    "protobuf>=3.20.2, <5.0.0",
     # data collection
     "h5py",
     #basic logger
     "tensorboard",
     # video recording
     "moviepy",
+    "setuptools >= 64",
 
 ]
 
@@ -60,7 +61,7 @@ setup(
         "Natural Language :: English",
         "Programming Language :: Python :: 3.10",
         "Isaac Sim :: 2023.1.1",
-        "Isaac Sim :: 4.2.0",
+        "Isaac Sim :: 4.1.0",
     ],
     zip_safe=False,
 )
