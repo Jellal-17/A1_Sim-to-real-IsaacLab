@@ -22,6 +22,15 @@ This repository is based on a template for building a quadruped robot Unitree A1
 
 
 ### Installation
+1. Begin by installing NVIDIA's [Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html) and [Isaac Lab](https://isaac-sim.github.io/IsaacLab/source/setup/installation/binaries_installation.html).
+2. This repository includes an Isaac Lab extension with the A1 tasks. To install it, follow these steps:
+
+```bash
+$ git clone https://github.com/Jellal-17/A1_Sim-to-real-IsaacLab.git
+$ cd A1_Sim-to-real-IsaacLab
+$ conda activate isaaclab
+$ python -m pip install -e exts/omni.isaac.a1_tasks
+```
 
 
 #### Set up IDE (Optional)
