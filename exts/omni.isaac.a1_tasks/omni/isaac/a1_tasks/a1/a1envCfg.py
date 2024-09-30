@@ -1,14 +1,15 @@
-
-import numpy
 import math
+import numpy
+
+from omni.isaac.a1_tasks.config.env_config import A1EnvCfg
+from omni.isaac.a1_tasks.config.terrain_cfg import TERRAIN1_CFG, TERRAIN1_PLAY_CFG, TERRAIN2_CFG, TERRAIN2_PLAY_CFG
 
 # required configs
 from omni.isaac.lab.utils import configclass
-from omni.isaac.a1_tasks.config.env_config import A1EnvCfg
-from omni.isaac.a1_tasks.config.terrain_cfg import TERRAIN1_CFG, TERRAIN1_PLAY_CFG
 
-#robot Configuration
+# robot Configuration
 from omni.isaac.lab_assets.unitree import UNITREE_A1_CFG  # isort: skip
+
 
 @configclass
 class A1baseEnvCfg(A1EnvCfg):
@@ -23,7 +24,7 @@ class A1baseEnvCfg(A1EnvCfg):
         }
 
         self.scene.terrain.terrain_type = "generator"
-        self.scene.terrain.terrain_generator = TERRAIN1_CFG
+        self.scene.terrain.terrain_generator = TERRAIN2_CFG
 
         # update viewport camera
         self.viewer.eye = (0.0, 0.0, 75.0)
@@ -39,7 +40,7 @@ class A1baseEnvCfg_PLAY(A1EnvCfg):
 
         # spawn the robot randomly in the grid (instead of their terrain levels)
         self.scene.terrain.max_init_terrain_level = None
-        self.scene.terrain.terrain_generator = TERRAIN1_PLAY_CFG
+        self.scene.terrain.terrain_generator = TERRAIN2_PLAY_CFG
 
         # disable randomization for play
         self.observations.policy.enable_corruption = False

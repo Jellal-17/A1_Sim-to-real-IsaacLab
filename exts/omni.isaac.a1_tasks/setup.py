@@ -13,7 +13,7 @@ EXTENSION_TOML_DATA = toml.load(os.path.join(EXTENSION_PATH, "config", "extensio
 
 # Minimum dependencies required prior to installation
 INSTALL_REQUIRES = [
-    # generic 
+    # generic
     "psutil",
     "numpy",
     "torch==2.2.2",
@@ -21,12 +21,11 @@ INSTALL_REQUIRES = [
     "protobuf>=3.20.2, <5.0.0",
     # data collection
     "h5py",
-    #basic logger
+    # basic logger
     "tensorboard",
     # video recording
     "moviepy",
     "setuptools >= 64",
-
 ]
 
 PYTORCH_INDEX_URL = ["https://download.pytorch.org/whl/cu118"]
