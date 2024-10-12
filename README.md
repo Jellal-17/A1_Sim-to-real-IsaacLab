@@ -28,7 +28,7 @@ This repository is based on a template for building a quadruped robot Unitree A1
 ```bash
 $ git clone https://github.com/Jellal-17/A1_Sim-to-real-IsaacLab.git
 $ conda activate isaaclab
-$ python -m pip install -e source/extensions/omni.isaac.a1_tasks
+$ python -m pip install -e exts/omni.isaac.a1_tasks
 ```
 
 
