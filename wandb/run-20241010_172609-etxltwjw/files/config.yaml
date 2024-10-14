@@ -1,0 +1,98 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.21
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.15
+    start_time: 1728570369
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 16
+      4: 3.10.15
+      5: 0.12.21
+      8:
+      - 5
+algorithm:
+  desc: null
+  value:
+    class_name: PPO
+    clip_param: 0.2
+    desired_kl: 0.01
+    entropy_coef: 0.01
+    gamma: 0.99
+    lam: 0.95
+    learning_rate: 0.001
+    max_grad_norm: 1.0
+    num_learning_epochs: 5
+    num_mini_batches: 4
+    schedule: adaptive
+    use_clipped_value_loss: true
+    value_loss_coef: 1.0
+device:
+  desc: null
+  value: cuda:0
+empirical_normalization:
+  desc: null
+  value: false
+experiment_name:
+  desc: null
+  value: a1_base_v1
+load_checkpoint:
+  desc: null
+  value: model_.*.pt
+load_run:
+  desc: null
+  value: .*
+logger:
+  desc: null
+  value: wandb
+max_iterations:
+  desc: null
+  value: 20000
+neptune_project:
+  desc: null
+  value: isaaclab
+num_steps_per_env:
+  desc: null
+  value: 24
+policy:
+  desc: null
+  value:
+    activation: elu
+    actor_hidden_dims:
+    - 512
+    - 256
+    - 128
+    class_name: ActorCritic
+    critic_hidden_dims:
+    - 512
+    - 128
+    - 128
+    init_noise_std: 1.0
+resume:
+  desc: null
+  value: false
+run_name:
+  desc: null
+  value: ''
+save_interval:
+  desc: null
+  value: 300
+seed:
+  desc: null
+  value: 42
+wandb_project:
+  desc: null
+  value: a1_isaaclab

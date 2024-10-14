@@ -1,14 +1,15 @@
-
-import numpy
 import math
+import numpy
+
+from omni.isaac.a1_tasks.config.env_config import A1EnvCfg
+from omni.isaac.a1_tasks.config.terrain_cfg import TERRAIN1_CFG, TERRAIN1_PLAY_CFG, TERRAIN2_CFG, TERRAIN2_PLAY_CFG
 
 # required configs
 from omni.isaac.lab.utils import configclass
-from omni.isaac.a1_tasks.config.env_config import A1EnvCfg
-from omni.isaac.a1_tasks.config.terrain_cfg import TERRAIN1_CFG, TERRAIN1_PLAY_CFG
 
-#robot Configuration
+# robot Configuration
 from omni.isaac.lab_assets.unitree import UNITREE_A1_CFG  # isort: skip
+
 
 @configclass
 class A1baseEnvCfg(A1EnvCfg):

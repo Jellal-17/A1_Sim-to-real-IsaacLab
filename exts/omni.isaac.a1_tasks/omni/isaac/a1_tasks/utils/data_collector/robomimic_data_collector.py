@@ -275,8 +275,10 @@ class RobomimicDataCollector:
         if self._env_config is None:
             self._env_config = dict()
         # -- add info
-        self._h5_data_group.attrs["env_args"] = json.dumps({
-            "env_name": self._env_name,
-            "type": env_type,
-            "env_kwargs": self._env_config,
-        })
+        self._h5_data_group.attrs["env_args"] = json.dumps(
+            {
+                "env_name": self._env_name,
+                "type": env_type,
+                "env_kwargs": self._env_config,
+            }
+        )

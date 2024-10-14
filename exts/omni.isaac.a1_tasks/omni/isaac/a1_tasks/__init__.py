@@ -1,9 +1,9 @@
-
 """Required to register gym environments"""
 
-from . import a1  # noqa: F401, F403
 import os
 import toml
+
+from . import a1  # noqa: F401, F403
 
 # Conveniences to other module directories via relative paths
 ISAACLAB_A1TASKS_EXT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))

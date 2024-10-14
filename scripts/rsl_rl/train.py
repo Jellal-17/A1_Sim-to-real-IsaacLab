@@ -38,8 +38,13 @@ simulation_app = app_launcher.app
 
 import gymnasium as gym
 import os
+import sys
 import torch
 from datetime import datetime
+
+import wandb
+
+sys.path.append(os.path.abspath("/media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab"))
 
 from rsl_rl.runners import OnPolicyRunner
 
@@ -76,11 +81,19 @@ def main():
         log_dir += f"_{agent_cfg.run_name}"
     log_dir = os.path.join(log_root_path, log_dir)
 
+    if agent_cfg.logger == "wandb":
+        wandb.init(
+            project=agent_cfg.wandb_project,
+            name=agent_cfg.run_name,
+            config=agent_cfg.to_dict(),
+            dir=log_dir,
+        )
+
     # max iterations for training
     if args_cli.max_iterations is not None:
         agent_cfg.max_iterations = args_cli.max_iterations
-    if args_cli.save_interval is not None:
-        agent_cfg.save_interval = args_cli.save_interval
+    if args_cli.video_interval is not None:
+        agent_cfg.video_interval = args_cli.video_interval
 
     # create isaac environment
     env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
@@ -121,6 +134,9 @@ def main():
 
     # run training
     runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+
+    if agent_cfg.logger == "wandb":
+        wandb.finish()
 
     # close the simulator
     env.close()

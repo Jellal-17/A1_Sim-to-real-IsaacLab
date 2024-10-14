@@ -18,7 +18,6 @@ except ImportError:
 
 from omni.isaac.lab.envs import DirectRLEnvCfg, ManagerBasedRLEnvCfg
 from omni.isaac.lab.utils import replace_slices_with_strings, replace_strings_with_slices
-
 from omni.isaac.lab_tasks.utils.parse_cfg import load_cfg_from_registry
 
 
