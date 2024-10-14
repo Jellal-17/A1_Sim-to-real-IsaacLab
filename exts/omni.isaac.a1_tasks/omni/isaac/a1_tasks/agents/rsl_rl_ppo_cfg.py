@@ -10,7 +10,11 @@ from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import (
 class A1PPORunnerCfg(RslRlOnPolicyRunnerCfg):
     num_steps_per_env = 24
     max_iterations = 20000
+<<<<<<< HEAD
+    save_interval = 300
+=======
     save_interval = 500
+>>>>>>> 9c329ad3971243fe25cccd34ca0dbba8766abfe4
     experiment_name = "a1"
     empirical_normalization = False
     policy = RslRlPpoActorCriticCfg(

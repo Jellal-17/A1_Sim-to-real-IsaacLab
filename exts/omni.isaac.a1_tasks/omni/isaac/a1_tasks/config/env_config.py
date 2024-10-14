@@ -248,7 +248,11 @@ class A1RewardsCfg:
             "threshold": 0.5,
         },
     )
+<<<<<<< HEAD
+    termination_penalty = RewTerm(func=mdp.is_terminated, weight=-10.0)
+=======
     termination_penalty = RewTerm(func=mdp.is_terminated, weight=-400.0)
+>>>>>>> 9c329ad3971243fe25cccd34ca0dbba8766abfe4
 
     position_command_error = RewTerm(
         func=mdp.position_command_error_tanh,
@@ -286,7 +290,11 @@ class A1RewardsCfg:
     # If you have a goal achievement reward
     goal_achievement = RewTerm(
         func=mdp.goal_achievement_reward,
+<<<<<<< HEAD
+        weight=10.0,
+=======
         weight=20.0,
+>>>>>>> 9c329ad3971243fe25cccd34ca0dbba8766abfe4
         params={
             "success_threshold": 0.1,  # Adjust as needed
         },
@@ -294,15 +302,27 @@ class A1RewardsCfg:
 
     # -- penalties
 
+<<<<<<< HEAD
+    # base_motion = RewTerm(
+    #     func=mdp.base_motion_penalty, weight=-0.5, params={"asset_cfg": SceneEntityCfg("robot")}
+    # )
+=======
     base_motion = RewTerm(func=mdp.base_motion_penalty, weight=-0.5, params={"asset_cfg": SceneEntityCfg("robot")})
+>>>>>>> 9c329ad3971243fe25cccd34ca0dbba8766abfe4
 
-    base_angular_motion = RewTerm(
-        func=mdp.base_angular_motion_penalty, weight=-0.1, params={"asset_cfg": SceneEntityCfg("robot")}
-    )
+    # base_angular_motion = RewTerm(
+    #     func=mdp.base_angular_motion_penalty, weight=-0.1, params={"asset_cfg": SceneEntityCfg("robot")}
+    # )
 
+<<<<<<< HEAD
+    # base_orientation = RewTerm(
+    #     func=mdp.base_orientation_penalty, weight=-0.5, params={"asset_cfg": SceneEntityCfg("robot")}
+    # )
+=======
     base_orientation = RewTerm(
         func=mdp.base_orientation_penalty, weight=-0.5, params={"asset_cfg": SceneEntityCfg("robot")}
     )
+>>>>>>> 9c329ad3971243fe25cccd34ca0dbba8766abfe4
 
     action_smoothness = RewTerm(func=mdp.action_smoothness_penalty, weight=-0.1)
 

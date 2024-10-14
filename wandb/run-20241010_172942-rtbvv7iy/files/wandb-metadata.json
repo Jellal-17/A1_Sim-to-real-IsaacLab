@@ -1,0 +1,36 @@
+{
+    "os": "Linux-5.15.0-122-generic-x86_64-with-glibc2.35",
+    "python": "3.10.15",
+    "heartbeatAt": "2024-10-10T14:29:43.726738",
+    "startedAt": "2024-10-10T14:29:42.135245",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": "10.2.89",
+    "args": [
+        "--task",
+        "Isaac-A1-Base-v1",
+        "--num_envs",
+        "4098",
+        "--enable_cameras",
+        "--video",
+        "--headless",
+        "--logger",
+        "wandb",
+        "--log_project_name",
+        "a1_isaaclab"
+    ],
+    "state": "running",
+    "program": "/media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab/scripts/rsl_rl/train.py",
+    "codePath": "scripts/rsl_rl/train.py",
+    "git": {
+        "remote": "https://github.com/Jellal-17/A1_Sim-to-real-IsaacLab.git",
+        "commit": "2eb09789aca57da4bb6198d40320589158f356bc"
+    },
+    "email": "s.kadimisetty@cyens.org.cy",
+    "root": "/media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab",
+    "host": "ML-194235010821",
+    "username": "sathvik-k",
+    "executable": "/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/bin/python"
+}

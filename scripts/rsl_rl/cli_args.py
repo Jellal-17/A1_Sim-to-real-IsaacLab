@@ -64,6 +64,6 @@ def parse_rsl_rl_cfg(task_name: str, args_cli: argparse.Namespace) -> RslRlOnPol
     # set the project name for wandb and neptune
     if rslrl_cfg.logger in {"wandb", "neptune"} and args_cli.log_project_name:
         rslrl_cfg.wandb_project = args_cli.log_project_name
-        rslrl_cfg.neptune_project = args_cli.log_project_name
+        # rslrl_cfg.neptune_project = args_cli.log_project_name
 
     return rslrl_cfg

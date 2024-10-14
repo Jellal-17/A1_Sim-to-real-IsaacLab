@@ -1,0 +1,155 @@
+[INFO] Logging experiment in directory: /media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab/logs/rsl_rl/a1_base_v1
+[93m[1m2024-10-10 14:26:16 [19,667ms] [Warning] [omni.isaac.lab.envs.manager_based_env] Seed not set for the environment. The environment creation may not be deterministic.
+[93m[1m[INFO]: Base environment:
+[93m[1m	Environment device    : cuda:0
+[93m[1m	Environment seed      : None
+[93m[1m	Physics step-size     : 0.002
+[93m[1m	Rendering step-size   : 0.02
+[93m[1m	Environment step-size : 0.02
+[INFO] Generating terrains based on curriculum took : 0.779609 seconds
+[INFO]: Time taken for scene creation : 10.621899 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4098
+	Environment spacing   : 2.5
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : ['/World/ground']
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[93m[1m2024-10-10 14:26:44 [47,976ms] [Warning] [omni.hydra.scene_delegate.plugin] Calling getBypassRenderSkelMeshProcessing for prim /World/envs/env_0/Robot/FL_hip/visuals.proto_mesh_0_id0 that has not been populated
+[INFO]: Time taken for simulation start : 18.442324 seconds
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++------------------------------------------+
+|           Active Command Terms           |
++-------+--------------+-------------------+
+| Index | Name         |        Type       |
++-------+--------------+-------------------+
+|   0   | pose_command | Waypoint2dCommand |
++-------+--------------+-------------------+
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 12)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          12 |
++--------+-------------+-------------+
+[INFO] Observation Manager: <ObservationManager> contains 1 groups.
++---------------------------------------------------------+
+| Active Observation Terms in Group: 'policy' (shape: (47,)) |
++-----------+---------------------------------+-----------+
+|   Index   | Name                            |   Shape   |
++-----------+---------------------------------+-----------+
+|     0     | projected_gravity               |    (3,)   |
+|     1     | base_lin_vel                    |    (3,)   |
+|     2     | pose_command                    |    (4,)   |
+|     3     | heading_error                   |    (1,)   |
+|     4     | joint_pos                       |   (12,)   |
+|     5     | joint_vel                       |   (12,)   |
+|     6     | actions                         |   (12,)   |
++-----------+---------------------------------+-----------+
+[INFO] Event Manager:  <EventManager> contains 3 active terms.
++--------------------------------------+
+| Active Event Terms in Mode: 'startup' |
++----------+---------------------------+
+|  Index   | Name                      |
++----------+---------------------------+
+|    0     | physics_material          |
+|    1     | add_base_mass             |
++----------+---------------------------+
++---------------------------------------+
+|  Active Event Terms in Mode: 'reset'  |
++--------+------------------------------+
+| Index  | Name                         |
++--------+------------------------------+
+|   0    | base_external_force_torque   |
+|   1    | reset_base                   |
+|   2    | reset_robot_joints           |
++--------+------------------------------+
++----------------------------------------------+
+|    Active Event Terms in Mode: 'interval'    |
++-------+------------+-------------------------+
+| Index | Name       | Interval time range (s) |
++-------+------------+-------------------------+
+|   0   | push_robot |       (10.0, 15.0)      |
++-------+------------+-------------------------+
+[INFO] Termination Manager:  <TerminationManager> contains 2 active terms.
++---------------------------------+
+|     Active Termination Terms    |
++-------+--------------+----------+
+| Index | Name         | Time Out |
++-------+--------------+----------+
+|   0   | time_out     |   True   |
+|   1   | body_contact |  False   |
++-------+--------------+----------+
+[INFO] Reward Manager:  <RewardManager> contains 13 active terms.
++-------------------------------------------------+
+|               Active Reward Terms               |
++-------+--------------------------------+--------+
+| Index | Name                           | Weight |
++-------+--------------------------------+--------+
+|   0   | air_time                       | 0.0001 |
+|   1   | termination_penalty            |  -10.0 |
+|   2   | position_command_error         |    5.0 |
+|   3   | position_tracking_fine_grained |    5.0 |
+|   4   | orientation_tracking           |   -1.0 |
+|   5   | position_tracking              |   10.0 |
+|   6   | goal_achievement               |   10.0 |
+|   7   | action_smoothness              |   -0.1 |
+|   8   | foot_slip                      |   -0.5 |
+|   9   | collision                      |   -5.0 |
+|   10  | feet_stumble                   |   -1.0 |
+|   11  | joint_pos_limits               | -0.004 |
+|   12  | hip_limit                      |   -0.5 |
++-------+--------------------------------+--------+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 1 active terms.
++---------------------------+
+|  Active Curriculum Terms  |
++--------+------------------+
+| Index  | Name             |
++--------+------------------+
+|   0    | terrain_levels   |
++--------+------------------+
+[INFO]: Completed setting up the environment...
+[INFO] Recording videos during training.
+        video_folder: /media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab/logs/rsl_rl/a1_base_v1/2024-10-10_17-26-16/videos/train
+        step_trigger: lambda step: step % args_cli.video_interval == 0
+        video_length: 200
+        disable_logger: True
+/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/lib/python3.10/site-packages/gymnasium/core.py:297: UserWarning: [33mWARN: env.is_vector_env to get variables from other wrappers is deprecated and will be removed in v1.0, to get this variable you can do `env.unwrapped.is_vector_env` for environment variables or `env.get_attr('is_vector_env')` that will search the reminding wrappers.
+  logger.warn(
+Actor MLP: Sequential(
+  (0): Linear(in_features=47, out_features=512, bias=True)
+  (1): ELU(alpha=1.0)
+  (2): Linear(in_features=512, out_features=256, bias=True)
+  (3): ELU(alpha=1.0)
+  (4): Linear(in_features=256, out_features=128, bias=True)
+  (5): ELU(alpha=1.0)
+  (6): Linear(in_features=128, out_features=12, bias=True)
+)
+Critic MLP: Sequential(
+  (0): Linear(in_features=47, out_features=512, bias=True)
+  (1): ELU(alpha=1.0)
+  (2): Linear(in_features=512, out_features=128, bias=True)
+  (3): ELU(alpha=1.0)
+  (4): Linear(in_features=128, out_features=128, bias=True)
+  (5): ELU(alpha=1.0)
+  (6): Linear(in_features=128, out_features=1, bias=True)
+)
+Setting seed: 42
+Traceback (most recent call last):
+  File "/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/lib/python3.10/site-packages/rsl_rl/utils/wandb_utils.py", line 28, in __init__
+    entity = os.environ["WANDB_USERNAME"]
+  File "/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/lib/python3.10/os.py", line 680, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'WANDB_USERNAME'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab/scripts/rsl_rl/train.py", line 155, in <module>
+    main()
+  File "/media/skadimisetty/Storage/Sathvik/A1_Sim-to-real-IsaacLab/scripts/rsl_rl/train.py", line 144, in main
+    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+  File "/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/lib/python3.10/site-packages/rsl_rl/runners/on_policy_runner.py", line 82, in learn
+    self.writer = WandbSummaryWriter(log_dir=self.log_dir, flush_secs=10, cfg=self.cfg)
+  File "/media/skadimisetty/Storage/Sathvik/anaconda3/envs/isaaclab/lib/python3.10/site-packages/rsl_rl/utils/wandb_utils.py", line 30, in __init__
+    raise KeyError(
+KeyError: 'Wandb username not found. Please run or add to ~/.bashrc: export WANDB_USERNAME=YOUR_USERNAME'
