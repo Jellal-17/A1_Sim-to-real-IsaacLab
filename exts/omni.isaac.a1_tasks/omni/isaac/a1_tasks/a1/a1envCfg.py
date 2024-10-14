@@ -24,7 +24,7 @@ class A1baseEnvCfg(A1EnvCfg):
         }
 
         self.scene.terrain.terrain_type = "generator"
-        self.scene.terrain.terrain_generator = TERRAIN1_CFG
+        self.scene.terrain.terrain_generator = TERRAIN2_CFG
 
         # update viewport camera
         self.viewer.eye = (0.0, 0.0, 75.0)
@@ -40,7 +40,7 @@ class A1baseEnvCfg_PLAY(A1EnvCfg):
 
         # spawn the robot randomly in the grid (instead of their terrain levels)
         self.scene.terrain.max_init_terrain_level = None
-        self.scene.terrain.terrain_generator = TERRAIN1_PLAY_CFG
+        self.scene.terrain.terrain_generator = TERRAIN2_PLAY_CFG
 
         # disable randomization for play
         self.observations.policy.enable_corruption = False
