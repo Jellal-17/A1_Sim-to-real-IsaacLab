@@ -10,38 +10,18 @@
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/license/mit)
 
 ## Overview
+This branch specifically on starting up with your Unitree A1 robot and setting up the basics of deployment. 
 
-This repository is based on a template for building a quadruped robot Unitree A1 based on Isaac Lab. It allowed me to develop in an isolated environment, outside of the core Isaac Lab repository.
-
-**Key Features:**
-
-- `Isolation` Work outside the core Isaac Lab repository, ensuring that my development efforts remain self-contained.
-- `Flexibility` This template allowed my code to be run as an extension in Omniverse.
-
-**Keywords:** extension, template, isaaclab
+**Keywords:** unitree, a1
 
 
 ### Installation
-1. Begin by installing NVIDIA's [Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html) and [Isaac Lab](https://isaac-sim.github.io/IsaacLab/source/setup/installation/binaries_installation.html).
-2. This repository includes an Isaac Lab extension with the A1 tasks. To install it, you can either move the folder "omni.isaac.a1_tasks" into the extensions of Isaac Lab and install it using the setup file or follow these steps:
-
-```bash
-$ git clone https://github.com/Jellal-17/A1_Sim-to-real-IsaacLab.git
-$ conda activate isaaclab
-$ python -m pip install -e exts/omni.isaac.a1_tasks
+1. There are a few requirements to start working on low-level with the Unitree A1. We need to install the library of intel realsense camera, SDK of the Unitree A1 and ROS-to-Real from Unitree.
+2. Following this (https://github.com/ysozkaya/RealSense-Jetson), construct the pyhton bindings as well to use the pyrealsense2. 
+3. For the next step of ours, begin by dowloading the v3.3.1 of the Unitree legged SDK https://github.com/unitreerobotics/unitree_legged_sdk/releases/tag/v3.3.1.
+4. Now, you can use this https://github.com/unitreerobotics/unitree_ros_to_real/releases/tag/v3.2.1 to start working with ROS wrapper to the Unitree SDK, and for further development of the code, we are working to build up on this. 
+5. This repository will update the deployment beyond this later. 
 ```
-
-
-#### Set up IDE (Optional)
-
-To setup the IDE, please follow these instructions:
-
-- Run VSCode Tasks, by pressing `Ctrl+Shift+P`, selecting `Tasks: Run Task` and running the `setup_python_env` in the drop down menu. When running this task, you will be prompted to add the absolute path to your Isaac Sim installation.
-
-If everything executes correctly, it should create a file .python.env in the .vscode directory. The file contains the python paths to all the extensions provided by Isaac Sim and Omniverse. This helps in indexing all the python modules for intelligent suggestions while writing code.
-
-
-
 
 ## Code formatting
 
@@ -56,21 +36,4 @@ Then you can run pre-commit with:
 
 ```bash
 pre-commit run --all-files
-```
-
-
-## Troubleshooting
-### Pylance Crash
-
-If you encounter a crash in `pylance`, it is probable that too many files are indexed and you run out of memory.
-A possible solution is to exclude some of omniverse packages that are not used in your project.
-To do so, modify `.vscode/settings.json` and comment out packages under the key `"python.analysis.extraPaths"`
-Some examples of packages that can likely be excluded are:
-
-```json
-"<path-to-isaac-sim>/extscache/omni.anim.*"         // Animation packages
-"<path-to-isaac-sim>/extscache/omni.kit.*"          // Kit UI tools
-"<path-to-isaac-sim>/extscache/omni.graph.*"        // Graph UI tools
-"<path-to-isaac-sim>/extscache/omni.services.*"     // Services tools
-...
 ```
