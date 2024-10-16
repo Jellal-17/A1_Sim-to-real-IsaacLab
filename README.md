@@ -25,9 +25,11 @@ To start working with the Unitree A1 at a low level, follow these steps:
      
 2. **Install Unitree A1 SDK:**
    - Download and install the Unitree legged SDK v3.3.1 from [this link](https://github.com/unitreerobotics/unitree_legged_sdk/releases/tag/v3.3.1).
+   > ⚠️ **Note:** If you are working on the Jetson onboard, change it to 'arm64.so' for the lcm in CMakeLists , otherwise, it's fine to use it directly.
 
 3. **ROS Integration for Unitree A1:**
    - To integrate ROS with the Unitree A1 SDK, download the ROS wrapper from [this link](https://github.com/unitreerobotics/unitree_ros_to_real/releases/tag/v3.2.1).
+   > ⚠️ **Note:** change export UNITREE_PLATFORM="amd64" to export UNITREE_PLATFORM="arm64", if you're working with Jetson onborad.
 
 4. **Further Development:**
    - The repository will continue to be updated, and we are actively developing beyond this initial setup to enhance real-world deployment.
